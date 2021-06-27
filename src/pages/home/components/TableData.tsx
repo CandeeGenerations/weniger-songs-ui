@@ -34,7 +34,10 @@ const TableData = ({
       sorter: true,
       defaultSortOrder: 'ascend' as const,
       render: (title, {code}: Song) => (
-        <a href={`${REACT_APP_YOUTUBE_URL}/${code}`} target="_blank">
+        <a
+          href={`${REACT_APP_YOUTUBE_URL}/${code}${YOUTUBE_EXTRA}`}
+          target="_blank"
+        >
           {title}
         </a>
       ),
