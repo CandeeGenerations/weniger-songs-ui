@@ -75,7 +75,9 @@ const HomePage = (): React.ReactElement => {
           settings.sort.order === 'ascend' ? 'asc' : 'desc'
         }`,
         limit: settings.pagination.pageSize,
-        start: searching ? 0 : settings.pagination.current - 1,
+        start: searching
+          ? 0
+          : (settings.pagination.current - 1) * settings.pagination.pageSize,
         where:
           settings.search.length > 0
             ? {
