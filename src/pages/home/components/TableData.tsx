@@ -10,6 +10,7 @@ import {
 } from '@ant-design/icons'
 import {LazyQueryResult} from '@apollo/client'
 import {ITableSettings} from '../index'
+import {YOUTUBE_EXTRA} from '../../../helpers/constants'
 
 const {REACT_APP_YOUTUBE_URL} = process.env
 
@@ -55,7 +56,7 @@ const TableData = ({
     {
       title: 'Share',
       render: ({code}: Song) => {
-        const link = `${REACT_APP_YOUTUBE_URL}/${code}`
+        const link = `${REACT_APP_YOUTUBE_URL}/${code}${YOUTUBE_EXTRA}`
 
         return (
           <>

@@ -9,6 +9,7 @@ import {
 } from '@ant-design/icons'
 import copy from 'copy-text-to-clipboard'
 import {ITableSettings} from '../index'
+import {YOUTUBE_EXTRA} from '../../../helpers/constants'
 
 const {REACT_APP_YOUTUBE_URL} = process.env
 
@@ -35,7 +36,7 @@ const CardData = ({
   ) : (
     <>
       {data.map((song) => {
-        const link = `${REACT_APP_YOUTUBE_URL}/${song.code}`
+        const link = `${REACT_APP_YOUTUBE_URL}/${song.code}${YOUTUBE_EXTRA}`
 
         return (
           <Card style={{marginBottom: 15}}>
