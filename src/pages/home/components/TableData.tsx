@@ -22,8 +22,8 @@ const TableData = ({
 }: {
   data: GetSongsQuery
   loading: boolean
-  countData: LazyQueryResult<GetSongsCountQuery, Exact<{where?: any}>>
-  loadSongs: (settings?: ITableSettings) => void
+  countData: LazyQueryResult<GetSongsCountQuery, Exact<{where?: any}>> // eslint-disable-line @typescript-eslint/no-explicit-any
+  loadSongs: (settings?: ITableSettings) => void // eslint-disable-line no-unused-vars
   tableSettings: ITableSettings
 }): React.ReactElement => {
   const columns = [

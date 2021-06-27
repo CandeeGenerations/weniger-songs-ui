@@ -22,7 +22,7 @@ const CardData = ({
   data: SongFragementFragment[]
   loading: boolean
   count: number
-  loadSongs: (settings?: ITableSettings) => void
+  loadSongs: (settings?: ITableSettings) => void // eslint-disable-line no-unused-vars
   tableSettings: ITableSettings
 }): React.ReactElement => {
   const moreSongs =
