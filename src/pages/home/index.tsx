@@ -32,12 +32,21 @@ export interface ITableSettings {
 
 const HomePage = (): React.ReactElement => {
   const [songs, setSongs] = useState<SongFragementFragment[]>([])
+  const [loadingMore, setLoadingMore] = useState(false)
 
   const screens = useBreakpoint()
   const [getCount, countData] = useGetSongsCountLazyQuery()
-  const [getSongs, {data, loading}] = useGetSongsLazyQuery({
-    onCompleted: (newSongs) => setSongs([...songs, ...newSongs.songs]),
-  })
+  const [getSongs, {data, loading}] = useGetSongsLazyQuery()
+
+  useEffect(() => {
+    if (data && data.songs) {
+      if (screens.md) {
+        setSongs(data.songs)
+      } else {
+        setSongs(loadingMore ? [...songs, ...data.songs] : data.songs)
+      }
+    }
+  }, [data])
 
   const [settingsVisible, setSettingsVisible] = useState(false)
   const [tableSettings, setTableSettings] = useState<ITableSettings>({
@@ -52,7 +61,13 @@ const HomePage = (): React.ReactElement => {
     search: '',
   })
 
-  const loadSongs = async (settings?: ITableSettings, searching = false) => {
+  const loadSongs = async (
+    settings?: ITableSettings,
+    searching = false,
+    loadMore = false,
+  ) => {
+    setLoadingMore(loadMore)
+
     if (!settings) {
       settings = tableSettings
     } else {
@@ -94,7 +109,7 @@ const HomePage = (): React.ReactElement => {
 
   return (
     <Layout style={{background: screens.md ? '#fff' : '#F9FAFB'}}>
-      <Content style={{padding: 50}}>
+      <Content style={{padding: '50px 50px 100px'}}>
         <Typography.Title level={2} style={{marginBottom: 0}}>
           Songs I Love to Sing
         </Typography.Title>

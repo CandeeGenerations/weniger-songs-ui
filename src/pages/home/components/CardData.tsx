@@ -1,6 +1,6 @@
 import React from 'react'
 import {SongFragementFragment} from '@gql'
-import {Button, Card, Divider, notification, Spin, Typography} from 'antd'
+import {Button, Card, Divider, notification, Typography} from 'antd'
 import dayjs from 'dayjs'
 import {
   CheckCircleOutlined,
@@ -23,17 +23,17 @@ const CardData = ({
   data: SongFragementFragment[]
   loading: boolean
   count: number
-  loadSongs: (settings?: ITableSettings) => void // eslint-disable-line no-unused-vars
+  loadSongs: (
+    settings?: ITableSettings, // eslint-disable-line no-unused-vars
+    searching?: boolean, // eslint-disable-line no-unused-vars
+    loadMore?: boolean, // eslint-disable-line no-unused-vars
+  ) => void
   tableSettings: ITableSettings
 }): React.ReactElement => {
   const moreSongs =
     count > tableSettings.pagination.pageSize * tableSettings.pagination.current
 
-  return loading ? (
-    <div style={{marginTop: 20, textAlign: 'center'}}>
-      <Spin size="large" />
-    </div>
-  ) : (
+  return (
     <>
       {data.map((song) => {
         const link = `${REACT_APP_YOUTUBE_URL}/${song.code}${YOUTUBE_EXTRA}`
@@ -98,25 +98,42 @@ const CardData = ({
         )
       })}
 
-      {moreSongs && (
-        <Button
-          size="large"
-          style={{marginTop: 20}}
-          type="link"
-          block
-          onClick={() =>
-            loadSongs({
-              ...tableSettings,
-              pagination: {
-                ...tableSettings.pagination,
-                current: tableSettings.pagination.current + 1,
-              },
-            })
-          }
-        >
-          Load more
-        </Button>
-      )}
+      {moreSongs ? (
+        loading ? (
+          <div
+            style={{
+              color: '#1890ff',
+              opacity: 0.5,
+              textAlign: 'center',
+              marginTop: 50,
+            }}
+          >
+            Loading...
+          </div>
+        ) : (
+          <Button
+            size="large"
+            style={{marginTop: 20}}
+            type="link"
+            block
+            onClick={() =>
+              loadSongs(
+                {
+                  ...tableSettings,
+                  pagination: {
+                    ...tableSettings.pagination,
+                    current: tableSettings.pagination.current + 1,
+                  },
+                },
+                false,
+                true,
+              )
+            }
+          >
+            Load more
+          </Button>
+        )
+      ) : null}
     </>
   )
 }
