@@ -1,23 +1,33 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import {useApollo} from './apollo'
 import {ApolloProvider} from '@apollo/client'
+import {ConfigProvider} from 'antd'
+import React from 'react'
+import {createRoot} from 'react-dom/client'
+import {BrowserRouter} from 'react-router-dom'
 import App from './App'
-import './styles.less'
+import {useApollo} from './apollo'
 
-const AbacApp = () => {
+const MainApp = () => {
   const client = useApollo()
 
   return (
     <ApolloProvider client={client}>
-      <App />
+      <ConfigProvider
+        theme={{
+          token: {
+            borderRadius: 10,
+          },
+        }}
+      >
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ConfigProvider>
     </ApolloProvider>
   )
 }
 
-ReactDOM.render(
+createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AbacApp />
+    <MainApp />
   </React.StrictMode>,
-  document.getElementById('root'),
 )

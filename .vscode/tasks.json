@@ -1,0 +1,16 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "start",
+      "icon": {
+        "color": "terminal.ansiBlue",
+        "id": "device-desktop"
+      },
+      "problemMatcher": [],
+      "label": "Start Client",
+      "detail": "doppler run --command='REACT_APP_VERSION=$npm_package_version BROWSER=none craco start'"
+    }
+  ]
+}

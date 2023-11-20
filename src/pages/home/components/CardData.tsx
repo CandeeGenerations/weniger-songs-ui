@@ -1,15 +1,11 @@
-import React from 'react'
+import {CheckCircleOutlined, CopyOutlined, YoutubeOutlined} from '@ant-design/icons'
 import {SongFragementFragment} from '@gql'
 import {Button, Card, Divider, notification, Typography} from 'antd'
-import dayjs from 'dayjs'
-import {
-  CheckCircleOutlined,
-  SendOutlined,
-  YoutubeOutlined,
-} from '@ant-design/icons'
 import copy from 'copy-text-to-clipboard'
-import {ITableSettings} from '../index'
+import dayjs from 'dayjs'
+import React from 'react'
 import {YOUTUBE_EXTRA} from '../../../helpers/constants'
+import {ITableSettings} from '../index'
 
 const {REACT_APP_YOUTUBE_URL} = process.env
 
@@ -30,12 +26,11 @@ const CardData = ({
   ) => void
   tableSettings: ITableSettings
 }): React.ReactElement => {
-  const moreSongs =
-    count > tableSettings.pagination.pageSize * tableSettings.pagination.current
+  const moreSongs = count > tableSettings.pagination.pageSize * tableSettings.pagination.current
 
   return (
     <>
-      {data.map((song) => {
+      {data.map(song => {
         const link = `${REACT_APP_YOUTUBE_URL}/${song.code}${YOUTUBE_EXTRA}`
 
         return (
@@ -45,21 +40,12 @@ const CardData = ({
             <Divider />
 
             <p>
-              <strong>Date Added:</strong>{' '}
-              {song.added ? (
-                dayjs(song.added).format('MMMM DD, YYYY')
-              ) : (
-                <em>None</em>
-              )}
+              <strong>Date Added:</strong> {song.added ? dayjs(song.added).format('MMMM DD, YYYY') : <em>None</em>}
             </p>
 
             <p>
               <strong>Original Recording Date:</strong>{' '}
-              {song.original_date ? (
-                dayjs(song.original_date).format('MMMM DD, YYYY')
-              ) : (
-                <em>None</em>
-              )}
+              {song.original_date ? dayjs(song.original_date).format('MMMM DD, YYYY') : <em>None</em>}
             </p>
 
             <Button
@@ -72,12 +58,11 @@ const CardData = ({
                   duration: 3,
                   message: 'Link Copied',
                   icon: <CheckCircleOutlined style={{color: '#34D399'}} />,
-                  description:
-                    'You can now send this link to someone else by pasting it.',
+                  description: 'You can now send this link to someone else by pasting it.',
                 })
               }}
             >
-              <SendOutlined /> Copy Link
+              <CopyOutlined /> Copy Link
             </Button>
 
             <Button

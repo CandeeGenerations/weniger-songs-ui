@@ -1,16 +1,12 @@
-import React from 'react'
-import {Exact, GetSongsCountQuery, GetSongsQuery, Song} from '@gql'
-import {Button, notification, Table} from 'antd'
-import dayjs from 'dayjs'
-import copy from 'copy-text-to-clipboard'
-import {
-  CheckCircleOutlined,
-  SendOutlined,
-  YoutubeOutlined,
-} from '@ant-design/icons'
+import {CheckCircleOutlined, CopyOutlined, YoutubeOutlined} from '@ant-design/icons'
 import {LazyQueryResult} from '@apollo/client'
-import {ITableSettings} from '../index'
+import {Exact, GetSongsCountQuery, GetSongsQuery, Song} from '@gql'
+import {Button, Table, notification} from 'antd'
+import copy from 'copy-text-to-clipboard'
+import dayjs from 'dayjs'
+import React from 'react'
 import {YOUTUBE_EXTRA} from '../../../helpers/constants'
+import {ITableSettings} from '../index'
 
 const {REACT_APP_YOUTUBE_URL} = process.env
 
@@ -32,12 +28,8 @@ const TableData = ({
       title: 'Title',
       dataIndex: 'title',
       sorter: true,
-      defaultSortOrder: 'ascend' as const,
       render: (title, {code}: Song) => (
-        <a
-          href={`${REACT_APP_YOUTUBE_URL}/${code}${YOUTUBE_EXTRA}`}
-          target="_blank"
-        >
+        <a href={`${REACT_APP_YOUTUBE_URL}/${code}${YOUTUBE_EXTRA}`} target="_blank">
           {title}
         </a>
       ),
@@ -46,16 +38,15 @@ const TableData = ({
       title: 'Date Added',
       dataIndex: 'added',
       sorter: true,
-      render: (date) =>
-        date ? dayjs(date).format('MMMM DD, YYYY') : <em>None</em>,
+      defaultSortOrder: 'descend' as const,
+      render: date => (date ? dayjs(date).format('MMMM D, YYYY') : <em>None</em>),
     },
-    {
-      title: 'Original Date',
-      dataIndex: 'original_date',
-      sorter: true,
-      render: (date) =>
-        date ? dayjs(date).format('MMMM DD, YYYY') : <em>None</em>,
-    },
+    // {
+    //   title: 'Original Date',
+    //   dataIndex: 'original_date',
+    //   sorter: true,
+    //   render: date => (date ? dayjs(date).format('MMMM D, YYYY') : <em>None</em>),
+    // },
     {
       title: 'Share',
       render: ({code}: Song) => {
@@ -72,12 +63,11 @@ const TableData = ({
                   duration: 3,
                   message: 'Link Copied',
                   icon: <CheckCircleOutlined style={{color: '#34D399'}} />,
-                  description:
-                    'You can now send this link to someone else by pasting it.',
+                  description: 'You can now send this link to someone else by pasting it.',
                 })
               }}
             >
-              <SendOutlined />
+              <CopyOutlined />
             </Button>
 
             <Button

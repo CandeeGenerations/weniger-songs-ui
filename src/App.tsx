@@ -1,16 +1,12 @@
 import React from 'react'
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import {Route, Routes} from 'react-router-dom'
 import HomePage from './pages/home'
 
 const App = (): React.ReactElement => {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/">
-          <HomePage />
-        </Route>
-      </Switch>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+    </Routes>
   )
 }
 
