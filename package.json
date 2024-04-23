@@ -16,12 +16,12 @@
     "generate": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
-    "@apollo/client": "^3.9.10",
+    "@apollo/client": "^3.9.11",
     "@craco/craco": "^7.1.0",
     "@emotion/css": "^11.11.2",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
-    "antd": "^5.16.1",
+    "antd": "^5.16.4",
     "copy-text-to-clipboard": "^3.2.0",
     "craco-webpack-resolve": "^1.2.1",
     "dayjs": "^1.11.10",
@@ -37,18 +37,18 @@
     "@graphql-codegen/typescript": "^4.0.6",
     "@graphql-codegen/typescript-operations": "^4.2.0",
     "@graphql-codegen/typescript-react-apollo": "^4.3.0",
-    "@types/eslint": "^8.56.7",
-    "@types/node": "^20.12.6",
-    "@types/react": "^18.2.75",
-    "@types/react-dom": "^18.2.24",
+    "@types/eslint": "^8.56.10",
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.2.79",
+    "@types/react-dom": "^18.2.25",
     "@types/react-router-dom": "^5.3.3",
-    "@typescript-eslint/eslint-plugin": "^7.6.0",
-    "@typescript-eslint/parser": "^7.6.0",
-    "eslint": "^9.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.7.1",
+    "@typescript-eslint/parser": "^7.7.1",
+    "eslint": "^9.1.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^3.2.5",
     "react-app-alias": "^2.2.2",
-    "typescript": "^5.4.4"
+    "typescript": "^5.4.5"
   },
   "resolutions": {
     "@types/react": "^18.0.0"
@@ -71,5 +71,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "packageManager": "yarn@4.1.1"
 }
