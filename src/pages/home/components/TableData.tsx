@@ -8,6 +8,7 @@ import React from 'react'
 import {YOUTUBE_EXTRA} from '../../../helpers/constants'
 import {ITableSettings} from '../index'
 
+// eslint-disable-next-line no-undef
 const {REACT_APP_YOUTUBE_URL} = process.env
 
 const TableData = ({

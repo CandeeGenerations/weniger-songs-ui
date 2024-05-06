@@ -1,12 +1,13 @@
 import {CheckCircleOutlined, CopyOutlined, YoutubeOutlined} from '@ant-design/icons'
 import {SongFragementFragment} from '@gql'
-import {Button, Card, Divider, notification, Typography} from 'antd'
+import {Button, Card, Divider, Typography, notification} from 'antd'
 import copy from 'copy-text-to-clipboard'
 import dayjs from 'dayjs'
 import React from 'react'
 import {YOUTUBE_EXTRA} from '../../../helpers/constants'
 import {ITableSettings} from '../index'
 
+// eslint-disable-next-line no-undef
 const {REACT_APP_YOUTUBE_URL} = process.env
 
 const CardData = ({

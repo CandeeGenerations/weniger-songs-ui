@@ -1,13 +1,7 @@
+import {ApolloClient, ApolloLink, from, HttpLink, InMemoryCache, NormalizedCacheObject} from '@apollo/client'
 import {useMemo} from 'react'
-import {
-  ApolloClient,
-  ApolloLink,
-  from,
-  HttpLink,
-  InMemoryCache,
-  NormalizedCacheObject,
-} from '@apollo/client'
 
+// eslint-disable-next-line no-undef
 const {REACT_APP_SERVER_URL} = process.env
 
 let client: ApolloClient<NormalizedCacheObject>
@@ -16,13 +10,8 @@ const createApolloClient = (): ApolloClient<NormalizedCacheObject> => {
   // Strip __typename from variables
   const omitTypename = new ApolloLink((operation, forward) => {
     if (operation.variables) {
-      const omitTypename = (key, value) =>
-        key === '__typename' ? undefined : value
-      // eslint-disable-next-line no-param-reassign
-      operation.variables = JSON.parse(
-        JSON.stringify(operation.variables),
-        omitTypename,
-      )
+      const omitTypename = (key, value) => (key === '__typename' ? undefined : value)
+      operation.variables = JSON.parse(JSON.stringify(operation.variables), omitTypename)
     }
     return forward(operation)
   })
@@ -38,9 +27,7 @@ const createApolloClient = (): ApolloClient<NormalizedCacheObject> => {
   })
 }
 
-export const initializeApollo = (
-  initialState: NormalizedCacheObject = null,
-): ApolloClient<NormalizedCacheObject> => {
+export const initializeApollo = (initialState: NormalizedCacheObject = null): ApolloClient<NormalizedCacheObject> => {
   const _apolloClient = client ?? createApolloClient()
 
   // If your page has Next.js data fetching methods that use Apollo Client, the initial state
@@ -60,7 +47,5 @@ export const initializeApollo = (
   return _apolloClient
 }
 
-export const useApollo = (
-  initialState?: NormalizedCacheObject,
-): ApolloClient<NormalizedCacheObject> =>
+export const useApollo = (initialState?: NormalizedCacheObject): ApolloClient<NormalizedCacheObject> =>
   useMemo(() => initializeApollo(initialState), [initialState])
