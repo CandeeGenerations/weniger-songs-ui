@@ -16,38 +16,38 @@
     "generate": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
-    "@apollo/client": "^3.11.1",
+    "@apollo/client": "^3.11.4",
     "@craco/craco": "^7.1.0",
     "@emotion/css": "^11.13.0",
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
-    "antd": "^5.19.3",
+    "antd": "^5.20.2",
     "copy-text-to-clipboard": "^3.2.0",
     "craco-webpack-resolve": "^1.2.1",
-    "dayjs": "^1.11.12",
+    "dayjs": "^1.11.13",
     "graphql": "^16.9.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.25.1",
+    "react-router-dom": "^6.26.1",
     "react-scripts": "^5.0.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.8.0",
+    "@eslint/js": "^9.9.0",
     "@graphql-codegen/cli": "^5.0.2",
     "@graphql-codegen/introspection": "^4.0.3",
     "@graphql-codegen/typescript": "^4.0.9",
     "@graphql-codegen/typescript-operations": "^4.2.3",
     "@graphql-codegen/typescript-react-apollo": "^4.3.0",
-    "@types/node": "^22.0.0",
-    "@types/react": "^18.3.3",
+    "@types/node": "^22.4.2",
+    "@types/react": "^18.3.4",
     "@types/react-dom": "^18.3.0",
     "@types/react-router-dom": "^5.3.3",
-    "eslint": "^9.8.0",
-    "globals": "^15.8.0",
+    "eslint": "^9.9.0",
+    "globals": "^15.9.0",
     "prettier": "^3.3.3",
     "react-app-alias": "^2.2.2",
     "typescript": "^5.5.4",
-    "typescript-eslint": "^7.17.0"
+    "typescript-eslint": "^8.2.0"
   },
   "resolutions": {
     "@types/react": "^18.0.0"
