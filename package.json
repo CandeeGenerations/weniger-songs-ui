@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "description": "Songs written and song by Dr. Brad Weniger",
-  "homepage": "https://github.com/CandeeGenerations/weniger-songs-ui#readme",
   "bugs": {
     "url": "https://github.com/CandeeGenerations/weniger-songs-ui/issues"
   },
@@ -24,12 +23,25 @@
     "prettier:ci": "prettier --check .",
     "start": "doppler run --command='REACT_APP_VERSION=$npm_package_version BROWSER=none craco start'"
   },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "resolutions": {
     "@types/react": "^18.0.0",
     "nth-check": "^2.0.1",
     "postcss": "^8.4.31"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.4.0",
     "@apollo/client": "^3.11.4",
     "@craco/craco": "^7.1.0",
     "@emotion/css": "^11.13.0",
