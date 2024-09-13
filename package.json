@@ -1,19 +1,33 @@
 {
-  "name": "abac-ui-client",
+  "name": "weniger-songs-ui",
   "version": "0.1.0",
-  "description": "Songs written and song by Dr. Brad Weniger",
   "private": true,
-  "main": "index.js",
-  "repository": "git@github.com:CandeeGenerations/weniger-songs-ui.git",
-  "author": "Tyler Candee <tyler@candeegenerations.com>",
+  "description": "Songs written and song by Dr. Brad Weniger",
+  "homepage": "https://github.com/CandeeGenerations/weniger-songs-ui#readme",
+  "bugs": {
+    "url": "https://github.com/CandeeGenerations/weniger-songs-ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:CandeeGenerations/weniger-songs-ui.git"
+  },
   "license": "MIT",
+  "author": "Candee Generations <admin@candeegenerations.com>",
   "scripts": {
-    "start": "doppler run --command='REACT_APP_VERSION=$npm_package_version BROWSER=none craco start'",
     "build": "REACT_APP_VERSION=$npm_package_version GENERATE_SOURCEMAP=false NODE_ENV=production craco build",
-    "test": "craco test",
     "eject": "react-scripts eject",
-    "lint": "eslint './src/**/*.{ts,tsx}'",
-    "generate": "graphql-codegen --config codegen.yml"
+    "eslint": "eslint 'src/**/*.{ts,tsx}'",
+    "generate": "graphql-codegen --config codegen.yml",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky",
+    "prettier": "prettier --cache --check --write --ignore-unknown .",
+    "prettier:ci": "prettier --check .",
+    "start": "doppler run --command='REACT_APP_VERSION=$npm_package_version BROWSER=none craco start'"
+  },
+  "resolutions": {
+    "@types/react": "^18.0.0",
+    "nth-check": "^2.0.1",
+    "postcss": "^8.4.31"
   },
   "dependencies": {
     "@apollo/client": "^3.11.4",
@@ -32,44 +46,33 @@
     "react-scripts": "^5.0.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.4.1",
+    "@commitlint/config-conventional": "^19.4.1",
     "@eslint/js": "^9.9.1",
     "@graphql-codegen/cli": "^5.0.2",
     "@graphql-codegen/introspection": "^4.0.3",
     "@graphql-codegen/typescript": "^4.0.9",
     "@graphql-codegen/typescript-operations": "^4.2.3",
     "@graphql-codegen/typescript-react-apollo": "^4.3.0",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/node": "^22.5.0",
     "@types/react": "^18.3.4",
     "@types/react-dom": "^18.3.0",
     "@types/react-router-dom": "^5.3.3",
     "eslint": "^9.9.1",
     "globals": "^15.9.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
     "react-app-alias": "^2.2.2",
+    "sort-package-json": "^2.10.1",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.2.0"
   },
-  "resolutions": {
-    "@types/react": "^18.0.0"
+  "packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
   },
-  "proxy": "http://localhost:5502",
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "packageManager": "yarn@4.2.2"
+  "proxy": "http://localhost:5502"
 }

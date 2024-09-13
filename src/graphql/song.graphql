@@ -1,21 +1,21 @@
 # --- Fragment ---
 
 fragment SongFragement on Song {
-    id
-    title
-    code
-    added
-    original_date
+  id
+  title
+  code
+  added
+  original_date
 }
 
 # --- Queries ---
 
 query GetSongs($sort: String, $limit: Int, $start: Int, $where: JSON) {
-    songs(sort: $sort, limit: $limit, start: $start, where: $where, publicationState: LIVE) {
-        ...SongFragement
-    }
+  songs(sort: $sort, limit: $limit, start: $start, where: $where, publicationState: LIVE) {
+    ...SongFragement
+  }
 }
 
 query GetSongsCount($where: JSON) {
-    songsCount(where: $where)
+  songsCount(where: $where)
 }

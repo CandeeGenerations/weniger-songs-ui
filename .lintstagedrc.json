@@ -1,0 +1,5 @@
+{
+  "**/*.+(js|md|ts|tsx|css|sass|less|yml|yaml|json|vue)": "prettier --write --ignore-unknown",
+  "src/**/*.+(ts|tsx)": ["eslint --fix"],
+  "package.json": ["sort-package-json"]
+}

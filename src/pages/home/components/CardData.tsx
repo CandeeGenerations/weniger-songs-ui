@@ -4,6 +4,7 @@ import {Button, Card, Divider, Typography, notification} from 'antd'
 import copy from 'copy-text-to-clipboard'
 import dayjs from 'dayjs'
 import React from 'react'
+
 import {YOUTUBE_EXTRA} from '../../../helpers/constants'
 import {ITableSettings} from '../index'
 
@@ -31,7 +32,7 @@ const CardData = ({
 
   return (
     <>
-      {data.map(song => {
+      {data.map((song) => {
         const link = `${REACT_APP_YOUTUBE_URL}/${song.code}${YOUTUBE_EXTRA}`
 
         return (

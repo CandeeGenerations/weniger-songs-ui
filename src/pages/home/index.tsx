@@ -1,20 +1,13 @@
-import React, {useEffect, useState} from 'react'
-import {
-  SongFragementFragment,
-  useGetSongsCountLazyQuery,
-  useGetSongsLazyQuery,
-} from '@gql'
+import {SearchOutlined, SettingOutlined, UpOutlined} from '@ant-design/icons'
+import {SongFragementFragment, useGetSongsCountLazyQuery, useGetSongsLazyQuery} from '@gql'
 import {BackTop, Button, Input, Layout, Typography} from 'antd'
 import useBreakpoint from 'antd/es/grid/hooks/useBreakpoint'
-import TableData from './components/TableData'
+import React, {useEffect, useState} from 'react'
+
+import {DEFAULT_PAGE_SIZE, DEFAULT_SORT_FIELD, DEFAULT_SORT_ORDER} from '../../helpers/constants'
 import CardData from './components/CardData'
-import {SettingOutlined, UpOutlined, SearchOutlined} from '@ant-design/icons'
+import TableData from './components/TableData'
 import TableSettings from './components/TableSettings'
-import {
-  DEFAULT_PAGE_SIZE,
-  DEFAULT_SORT_FIELD,
-  DEFAULT_SORT_ORDER,
-} from '../../helpers/constants'
 
 const {Content} = Layout
 
@@ -61,11 +54,7 @@ const HomePage = (): React.ReactElement => {
     search: '',
   })
 
-  const loadSongs = async (
-    settings?: ITableSettings,
-    searching = false,
-    loadMore = false,
-  ) => {
+  const loadSongs = async (settings?: ITableSettings, searching = false, loadMore = false) => {
     setLoadingMore(loadMore)
 
     if (!settings) {
@@ -86,13 +75,9 @@ const HomePage = (): React.ReactElement => {
     })
     getSongs({
       variables: {
-        sort: `${settings.sort.field}:${
-          settings.sort.order === 'ascend' ? 'asc' : 'desc'
-        }`,
+        sort: `${settings.sort.field}:${settings.sort.order === 'ascend' ? 'asc' : 'desc'}`,
         limit: settings.pagination.pageSize,
-        start: searching
-          ? 0
-          : (settings.pagination.current - 1) * settings.pagination.pageSize,
+        start: searching ? 0 : (settings.pagination.current - 1) * settings.pagination.pageSize,
         where:
           settings.search.length > 0
             ? {
@@ -127,15 +112,10 @@ const HomePage = (): React.ReactElement => {
           size="large"
           placeholder="Search..."
           value={tableSettings.search}
-          onChange={(e) =>
-            setTableSettings({...tableSettings, search: e.target.value})
-          }
+          onChange={(e) => setTableSettings({...tableSettings, search: e.target.value})}
           onPressEnter={() => loadSongs(null, true)}
           suffix={
-            <Button
-              onClick={() => loadSongs({...tableSettings, search: ''}, true)}
-              type="link"
-            >
+            <Button onClick={() => loadSongs({...tableSettings, search: ''}, true)} type="link">
               Reset
             </Button>
           }

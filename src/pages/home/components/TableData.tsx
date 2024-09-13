@@ -5,6 +5,7 @@ import {Button, Table, notification} from 'antd'
 import copy from 'copy-text-to-clipboard'
 import dayjs from 'dayjs'
 import React from 'react'
+
 import {YOUTUBE_EXTRA} from '../../../helpers/constants'
 import {ITableSettings} from '../index'
 
@@ -40,7 +41,7 @@ const TableData = ({
       dataIndex: 'added',
       sorter: true,
       defaultSortOrder: 'descend' as const,
-      render: date => (date ? dayjs(date).format('MMMM D, YYYY') : <em>None</em>),
+      render: (date) => (date ? dayjs(date).format('MMMM D, YYYY') : <em>None</em>),
     },
     // {
     //   title: 'Original Date',

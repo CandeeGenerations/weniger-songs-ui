@@ -1,11 +1,10 @@
 import {gql} from '@apollo/client'
 import * as Apollo from '@apollo/client'
+
 export type Maybe<T> = T | null
 export type Exact<T extends {[key: string]: unknown}> = {[K in keyof T]: T[K]}
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> &
-  {[SubKey in K]?: Maybe<T[SubKey]>}
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> &
-  {[SubKey in K]: Maybe<T[SubKey]>}
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {[SubKey in K]?: Maybe<T[SubKey]>}
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {[SubKey in K]: Maybe<T[SubKey]>}
 const defaultOptions = {}
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -1126,10 +1125,7 @@ export type GetSongsCountQueryVariables = Exact<{
   where?: Maybe<Scalars['JSON']>
 }>
 
-export type GetSongsCountQuery = {__typename?: 'Query'} & Pick<
-  Query,
-  'songsCount'
->
+export type GetSongsCountQuery = {__typename?: 'Query'} & Pick<Query, 'songsCount'>
 
 export const SongFragementFragmentDoc = gql`
   fragment SongFragement on Song {
@@ -1142,13 +1138,7 @@ export const SongFragementFragmentDoc = gql`
 `
 export const GetSongsDocument = gql`
   query GetSongs($sort: String, $limit: Int, $start: Int, $where: JSON) {
-    songs(
-      sort: $sort
-      limit: $limit
-      start: $start
-      where: $where
-      publicationState: LIVE
-    ) {
+    songs(sort: $sort, limit: $limit, start: $start, where: $where, publicationState: LIVE) {
       ...SongFragement
     }
   }
@@ -1174,35 +1164,17 @@ export const GetSongsDocument = gql`
  *   },
  * });
  */
-export function useGetSongsQuery(
-  baseOptions?: Apollo.QueryHookOptions<GetSongsQuery, GetSongsQueryVariables>,
-) {
+export function useGetSongsQuery(baseOptions?: Apollo.QueryHookOptions<GetSongsQuery, GetSongsQueryVariables>) {
   const options = {...defaultOptions, ...baseOptions}
-  return Apollo.useQuery<GetSongsQuery, GetSongsQueryVariables>(
-    GetSongsDocument,
-    options,
-  )
+  return Apollo.useQuery<GetSongsQuery, GetSongsQueryVariables>(GetSongsDocument, options)
 }
-export function useGetSongsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    GetSongsQuery,
-    GetSongsQueryVariables
-  >,
-) {
+export function useGetSongsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetSongsQuery, GetSongsQueryVariables>) {
   const options = {...defaultOptions, ...baseOptions}
-  return Apollo.useLazyQuery<GetSongsQuery, GetSongsQueryVariables>(
-    GetSongsDocument,
-    options,
-  )
+  return Apollo.useLazyQuery<GetSongsQuery, GetSongsQueryVariables>(GetSongsDocument, options)
 }
 export type GetSongsQueryHookResult = ReturnType<typeof useGetSongsQuery>
-export type GetSongsLazyQueryHookResult = ReturnType<
-  typeof useGetSongsLazyQuery
->
-export type GetSongsQueryResult = Apollo.QueryResult<
-  GetSongsQuery,
-  GetSongsQueryVariables
->
+export type GetSongsLazyQueryHookResult = ReturnType<typeof useGetSongsLazyQuery>
+export type GetSongsQueryResult = Apollo.QueryResult<GetSongsQuery, GetSongsQueryVariables>
 export const GetSongsCountDocument = gql`
   query GetSongsCount($where: JSON) {
     songsCount(where: $where)
@@ -1226,36 +1198,17 @@ export const GetSongsCountDocument = gql`
  * });
  */
 export function useGetSongsCountQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    GetSongsCountQuery,
-    GetSongsCountQueryVariables
-  >,
+  baseOptions?: Apollo.QueryHookOptions<GetSongsCountQuery, GetSongsCountQueryVariables>,
 ) {
   const options = {...defaultOptions, ...baseOptions}
-  return Apollo.useQuery<GetSongsCountQuery, GetSongsCountQueryVariables>(
-    GetSongsCountDocument,
-    options,
-  )
+  return Apollo.useQuery<GetSongsCountQuery, GetSongsCountQueryVariables>(GetSongsCountDocument, options)
 }
 export function useGetSongsCountLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    GetSongsCountQuery,
-    GetSongsCountQueryVariables
-  >,
+  baseOptions?: Apollo.LazyQueryHookOptions<GetSongsCountQuery, GetSongsCountQueryVariables>,
 ) {
   const options = {...defaultOptions, ...baseOptions}
-  return Apollo.useLazyQuery<GetSongsCountQuery, GetSongsCountQueryVariables>(
-    GetSongsCountDocument,
-    options,
-  )
+  return Apollo.useLazyQuery<GetSongsCountQuery, GetSongsCountQueryVariables>(GetSongsCountDocument, options)
 }
-export type GetSongsCountQueryHookResult = ReturnType<
-  typeof useGetSongsCountQuery
->
-export type GetSongsCountLazyQueryHookResult = ReturnType<
-  typeof useGetSongsCountLazyQuery
->
-export type GetSongsCountQueryResult = Apollo.QueryResult<
-  GetSongsCountQuery,
-  GetSongsCountQueryVariables
->
+export type GetSongsCountQueryHookResult = ReturnType<typeof useGetSongsCountQuery>
+export type GetSongsCountLazyQueryHookResult = ReturnType<typeof useGetSongsCountLazyQuery>
+export type GetSongsCountQueryResult = Apollo.QueryResult<GetSongsCountQuery, GetSongsCountQueryVariables>

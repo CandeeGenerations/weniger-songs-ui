@@ -1,12 +1,9 @@
-import React, {useState} from 'react'
-import {Button, Divider, Drawer, Dropdown, Menu, Typography} from 'antd'
 import {DownOutlined} from '@ant-design/icons'
+import {Button, Divider, Drawer, Dropdown, Menu, Typography} from 'antd'
+import React, {useState} from 'react'
+
+import {DEFAULT_PAGE_SIZE, DEFAULT_SORT_FIELD, DEFAULT_SORT_ORDER} from '../../../helpers/constants'
 import {ITableSettings} from '../index'
-import {
-  DEFAULT_PAGE_SIZE,
-  DEFAULT_SORT_FIELD,
-  DEFAULT_SORT_ORDER,
-} from '../../../helpers/constants'
 
 const TableSettings = ({
   tableSettings,
@@ -20,12 +17,7 @@ const TableSettings = ({
   const [settings, setSettings] = useState<ITableSettings>(tableSettings)
 
   return (
-    <Drawer
-      title="Settings"
-      placement="left"
-      onClose={() => onClose(settings)}
-      visible={visible}
-    >
+    <Drawer title="Settings" placement="left" onClose={() => onClose(settings)} visible={visible}>
       <Typography.Title level={4}>Sorting</Typography.Title>
 
       <Divider />
@@ -47,9 +39,7 @@ const TableSettings = ({
               >
                 <Menu.Item key="title">Title</Menu.Item>
                 <Menu.Item key="added">Date Added</Menu.Item>
-                <Menu.Item key="original_date">
-                  Original Recording Date
-                </Menu.Item>
+                <Menu.Item key="original_date">Original Recording Date</Menu.Item>
               </Menu>
             }
             trigger={['click']}
@@ -58,8 +48,8 @@ const TableSettings = ({
               {settings.sort.field === 'title'
                 ? 'Title'
                 : settings.sort.field === 'added'
-                ? 'Date Added'
-                : 'Original Recording Date'}{' '}
+                  ? 'Date Added'
+                  : 'Original Recording Date'}{' '}
               <DownOutlined />
             </Button>
           </Dropdown>
@@ -88,20 +78,14 @@ const TableSettings = ({
             trigger={['click']}
           >
             <Button block>
-              {settings.sort.order === 'ascend' ? 'Ascending' : 'Descending'}{' '}
-              <DownOutlined />
+              {settings.sort.order === 'ascend' ? 'Ascending' : 'Descending'} <DownOutlined />
             </Button>
           </Dropdown>
         </div>
       </div>
 
       <div style={{marginTop: 50}}>
-        <Button
-          block
-          type="primary"
-          size="large"
-          onClick={() => onClose(settings)}
-        >
+        <Button block type="primary" size="large" onClick={() => onClose(settings)}>
           Save
         </Button>
       </div>

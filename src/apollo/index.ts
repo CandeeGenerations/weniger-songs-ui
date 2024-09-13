@@ -1,4 +1,4 @@
-import {ApolloClient, ApolloLink, from, HttpLink, InMemoryCache, NormalizedCacheObject} from '@apollo/client'
+import {ApolloClient, ApolloLink, HttpLink, InMemoryCache, NormalizedCacheObject, from} from '@apollo/client'
 import {useMemo} from 'react'
 
 // eslint-disable-next-line no-undef
