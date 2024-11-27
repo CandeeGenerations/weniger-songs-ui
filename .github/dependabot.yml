@@ -11,6 +11,8 @@ updates:
       separator: '-' # Use hyphens to separate branch name segments
     schedule:
       interval: 'weekly'
+    reviewers:
+      - 'cgen01'
     groups:
       catchall:
         patterns:
@@ -21,6 +23,8 @@ updates:
       separator: '-'
     schedule:
       interval: 'weekly'
+    reviewers:
+      - 'cgen01'
     groups:
       catchall:
         patterns:
