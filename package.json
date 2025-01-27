@@ -41,8 +41,8 @@
     "rollup": "^2.79.2"
   },
   "dependencies": {
-    "@ant-design/icons": "^5.5.2",
-    "@apollo/client": "^3.12.6",
+    "@ant-design/icons": "^5.6.0",
+    "@apollo/client": "^3.12.8",
     "@craco/craco": "^7.1.0",
     "@emotion/css": "^11.13.5",
     "@emotion/react": "^11.14.0",
@@ -60,26 +60,26 @@
   "devDependencies": {
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
-    "@eslint/js": "^9.18.0",
+    "@eslint/js": "^9.19.0",
     "@graphql-codegen/cli": "^5.0.3",
     "@graphql-codegen/introspection": "^4.0.3",
     "@graphql-codegen/typescript": "^4.1.2",
     "@graphql-codegen/typescript-operations": "^4.4.0",
     "@graphql-codegen/typescript-react-apollo": "^4.3.0",
     "@trivago/prettier-plugin-sort-imports": "^5.2.1",
-    "@types/node": "^22.10.7",
-    "@types/react": "^19.0.7",
+    "@types/node": "^22.10.10",
+    "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@types/react-router-dom": "^5.3.3",
-    "eslint": "^9.18.0",
+    "eslint": "^9.19.0",
     "globals": "^15.14.0",
     "husky": "^9.1.7",
-    "lint-staged": "^15.4.1",
+    "lint-staged": "^15.4.3",
     "prettier": "^3.4.2",
     "react-app-alias": "^2.2.2",
     "sort-package-json": "^2.14.0",
     "typescript": "^5.7.3",
-    "typescript-eslint": "^8.21.0"
+    "typescript-eslint": "^8.22.0"
   },
   "packageManager": "pnpm@9.15.0+sha512.76e2379760a4328ec4415815bcd6628dee727af3779aaa4c914e3944156c4299921a89f976381ee107d41f12cfa4b66681ca9c718f0668fa0831ed4c6d8ba56c",
   "engines": {
