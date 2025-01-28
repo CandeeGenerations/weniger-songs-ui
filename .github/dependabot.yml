@@ -10,7 +10,7 @@ updates:
     pull-request-branch-name:
       separator: '-' # Use hyphens to separate branch name segments
     schedule:
-      interval: 'weekly'
+      interval: 'monthly'
     reviewers:
       - 'cgen01'
     groups:
@@ -22,7 +22,7 @@ updates:
     pull-request-branch-name:
       separator: '-'
     schedule:
-      interval: 'weekly'
+      interval: 'monthly'
     reviewers:
       - 'cgen01'
     groups:
