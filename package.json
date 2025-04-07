@@ -45,7 +45,7 @@
     "postcss": "^8.4.31"
   },
   "dependencies": {
-    "@ant-design/icons": "6.0.0",
+    "@ant-design/icons": "5.6.1",
     "@apollo/client": "^3.13.6",
     "@craco/craco": "^7.1.0",
     "@emotion/css": "^11.13.5",
