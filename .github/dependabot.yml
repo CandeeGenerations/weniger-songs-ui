@@ -15,7 +15,7 @@ updates:
       - 'cgen01'
     ignore:
       - dependency-name: '@ant-design/icons'
-        versions: ['5.x']
+        update-types: ['version-update:semver-major']
     groups:
       catchall:
         patterns:
