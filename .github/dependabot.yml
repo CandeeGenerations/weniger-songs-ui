@@ -13,6 +13,9 @@ updates:
       interval: 'monthly'
     reviewers:
       - 'cgen01'
+    ignore:
+      - dependency-name: '@ant-design/icons'
+        versions: ['5.x']
     groups:
       catchall:
         patterns:
