@@ -21,7 +21,7 @@
     "prepare": "husky",
     "prettier": "prettier --cache --check --write --ignore-unknown .",
     "prettier:ci": "prettier --check .",
-    "start": "doppler run --command='REACT_APP_VERSION=$npm_package_version BROWSER=none craco start'"
+    "start": "phase run 'REACT_APP_VERSION=$npm_package_version BROWSER=none craco start'"
   },
   "browserslist": {
     "production": [

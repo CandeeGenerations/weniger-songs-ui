@@ -1,0 +1,8 @@
+{
+  "version": "2",
+  "phaseApp": "Weniger Songs UI",
+  "appId": "415234b7-014a-41a9-89f3-7ab8cf054783",
+  "defaultEnv": "Development",
+  "envId": "ed57b8a4-1a84-406f-8dff-fc5582c30a39",
+  "monorepoSupport": false
+}

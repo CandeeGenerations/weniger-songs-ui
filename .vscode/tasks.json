@@ -10,7 +10,7 @@
       },
       "problemMatcher": [],
       "label": "Start Client",
-      "detail": "doppler run --command='REACT_APP_VERSION=$npm_package_version BROWSER=none craco start'"
+      "detail": "phase run 'REACT_APP_VERSION=$npm_package_version BROWSER=none craco start'"
     }
   ]
 }
