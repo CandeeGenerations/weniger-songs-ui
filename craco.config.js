@@ -1,31 +1,61 @@
-const {CracoAliasPlugin, configPaths} = require('react-app-alias')
-const CracoWebpackResolve = require('craco-webpack-resolve')
-
-const aliasMap = configPaths('./tsconfig.paths.json')
+/* eslint-disable @typescript-eslint/no-require-imports */
+/* eslint-disable no-undef */
+const path = require('path')
 
 module.exports = {
   eslint: {
-    enable: process.env.NODE_ENV !== 'production',
+    // Disable ESLint webpack plugin due to incompatibility with ESLint 9
+    // Run linting separately with: pnpm eslint
+    enable: false,
   },
-  plugins: [
-    {
-      plugin: CracoAliasPlugin,
-      options: {
-        tsConfig: './tsconfig.json',
-        baseUrl: './',
-        alias: aliasMap,
-      },
+  webpack: {
+    alias: {
+      '@gql': path.resolve(__dirname, 'src/graphql/index.tsx'),
     },
-    {
-      plugin: CracoWebpackResolve,
-      options: {
-        resolve: {
-          fallback: {
-            'react/jsx-runtime': 'react/jsx-runtime.js',
-            'react/jsx-dev-runtime': 'react/jsx-dev-runtime.js',
-          },
-        },
-      },
+    configure: (webpackConfig) => {
+      // Add fallback resolution for React JSX runtime
+      webpackConfig.resolve.fallback = {
+        ...webpackConfig.resolve.fallback,
+        'react/jsx-runtime': require.resolve('react/jsx-runtime'),
+        'react/jsx-dev-runtime': require.resolve('react/jsx-dev-runtime'),
+      }
+
+      return webpackConfig
     },
-  ],
+  },
+  devServer: (devServerConfig) => {
+    // Convert deprecated onAfterSetupMiddleware to setupMiddlewares
+    if (devServerConfig.onAfterSetupMiddleware) {
+      const afterMiddleware = devServerConfig.onAfterSetupMiddleware
+      delete devServerConfig.onAfterSetupMiddleware
+
+      devServerConfig.setupMiddlewares = (middlewares, devServer) => {
+        // Call the old middleware function
+        afterMiddleware(devServer)
+        return middlewares
+      }
+    }
+
+    // Convert deprecated onBeforeSetupMiddleware to setupMiddlewares
+    if (devServerConfig.onBeforeSetupMiddleware) {
+      const beforeMiddleware = devServerConfig.onBeforeSetupMiddleware
+      delete devServerConfig.onBeforeSetupMiddleware
+
+      const existingSetup = devServerConfig.setupMiddlewares
+      devServerConfig.setupMiddlewares = (middlewares, devServer) => {
+        // Call the old middleware function
+        beforeMiddleware(devServer)
+        // Call existing setup if it exists
+        return existingSetup ? existingSetup(middlewares, devServer) : middlewares
+      }
+    }
+
+    // Convert deprecated https to server
+    if (devServerConfig.https !== undefined) {
+      devServerConfig.server = devServerConfig.https ? 'https' : 'http'
+      delete devServerConfig.https
+    }
+
+    return devServerConfig
+  },
 }

@@ -11,13 +11,11 @@ updates:
       separator: '-' # Use hyphens to separate branch name segments
     schedule:
       interval: 'monthly'
-    reviewers:
-      - 'cgen01'
-    ignore:
-      - dependency-name: '@ant-design/icons'
-        update-types: ['version-update:semver-major']
     groups:
-      catchall:
+      minor-updates:
+        update-types:
+          - 'minor'
+          - 'patch'
         patterns:
           - '*'
   - package-ecosystem: 'github-actions' # Check for updates to GitHub Actions every week
@@ -26,9 +24,10 @@ updates:
       separator: '-'
     schedule:
       interval: 'monthly'
-    reviewers:
-      - 'cgen01'
     groups:
-      catchall:
+      minor-updates:
+        update-types:
+          - 'minor'
+          - 'patch'
         patterns:
           - '*'
