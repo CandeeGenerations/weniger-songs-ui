@@ -1,5 +1,5 @@
 import {CheckCircleOutlined, CopyOutlined, YoutubeOutlined} from '@ant-design/icons'
-import {LazyQueryResult} from '@apollo/client'
+import {QueryResult} from '@apollo/client/react'
 import {Exact, GetSongsCountQuery, GetSongsQuery, Song} from '@gql'
 import {Button, Table, notification} from 'antd'
 import copy from 'copy-text-to-clipboard'
@@ -21,7 +21,7 @@ const TableData = ({
 }: {
   data: GetSongsQuery
   loading: boolean
-  countData: LazyQueryResult<GetSongsCountQuery, Exact<{where?: any}>> // eslint-disable-line @typescript-eslint/no-explicit-any
+  countData: QueryResult<GetSongsCountQuery, Exact<{where?: any}>> // eslint-disable-line @typescript-eslint/no-explicit-any
   loadSongs: (settings?: ITableSettings) => void // eslint-disable-line no-unused-vars
   tableSettings: ITableSettings
 }): React.ReactElement => {

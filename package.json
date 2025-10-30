@@ -13,7 +13,7 @@
   "license": "MIT",
   "author": "Candee Generations <admin@candeegenerations.com>",
   "scripts": {
-    "build": "REACT_APP_VERSION=$npm_package_version GENERATE_SOURCEMAP=false NODE_ENV=production craco build",
+    "build": "fnm use; REACT_APP_VERSION=$npm_package_version GENERATE_SOURCEMAP=false NODE_ENV=production craco build",
     "eject": "react-scripts eject",
     "eslint": "eslint 'src/**/*.{ts,tsx}'",
     "generate": "graphql-codegen --config codegen.yml",
@@ -21,7 +21,7 @@
     "prepare": "husky",
     "prettier": "prettier --cache --check --write --ignore-unknown .",
     "prettier:ci": "prettier --check .",
-    "start": "phase run 'REACT_APP_VERSION=$npm_package_version BROWSER=none craco start'"
+    "start": "fnm use; phase run 'REACT_APP_VERSION=$npm_package_version BROWSER=none craco start'"
   },
   "browserslist": {
     "production": [
@@ -48,8 +48,8 @@
     "webpack-dev-server": "^5.2.1"
   },
   "dependencies": {
-    "@ant-design/icons": "5.6.1",
-    "@apollo/client": "^3.13.8",
+    "@ant-design/icons": "6.1.0",
+    "@apollo/client": "^4.0.8",
     "@craco/craco": "^7.1.0",
     "@emotion/css": "^11.13.5",
     "@emotion/react": "^11.14.0",
@@ -68,10 +68,10 @@
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
     "@eslint/js": "^9.38.0",
-    "@graphql-codegen/cli": "^5.0.6",
-    "@graphql-codegen/introspection": "^4.0.3",
-    "@graphql-codegen/typescript": "^4.1.6",
-    "@graphql-codegen/typescript-operations": "^4.6.1",
+    "@graphql-codegen/cli": "^6.0.1",
+    "@graphql-codegen/introspection": "^5.0.0",
+    "@graphql-codegen/typescript": "^5.0.2",
+    "@graphql-codegen/typescript-operations": "^5.0.2",
     "@graphql-codegen/typescript-react-apollo": "^4.3.3",
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/node": "^24.9.2",
@@ -90,8 +90,8 @@
   },
   "packageManager": "pnpm@10.20.0+sha512.cf9998222162dd85864d0a8102e7892e7ba4ceadebbf5a31f9c2fce48dfce317a9c53b9f6464d1ef9042cba2e02ae02a9f7c143a2b438cd93c91840f0192b9dd",
   "engines": {
-    "node": ">=20.0.0",
-    "pnpm": ">=9.0.0"
+    "node": ">=22.0.0",
+    "pnpm": ">=10.0.0"
   },
   "proxy": "http://localhost:5502"
 }

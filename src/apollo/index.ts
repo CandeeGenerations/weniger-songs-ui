@@ -1,12 +1,12 @@
-import {ApolloClient, ApolloLink, HttpLink, InMemoryCache, NormalizedCacheObject, from} from '@apollo/client'
+import {ApolloClient, ApolloLink, HttpLink, InMemoryCache, from} from '@apollo/client'
 import {useMemo} from 'react'
 
 // eslint-disable-next-line no-undef
 const {REACT_APP_SERVER_URL} = process.env
 
-let client: ApolloClient<NormalizedCacheObject>
+let client: ApolloClient
 
-const createApolloClient = (): ApolloClient<NormalizedCacheObject> => {
+const createApolloClient = (): ApolloClient => {
   // Strip __typename from variables
   const omitTypename = new ApolloLink((operation, forward) => {
     if (operation.variables) {
@@ -27,14 +27,16 @@ const createApolloClient = (): ApolloClient<NormalizedCacheObject> => {
   })
 }
 
-export const initializeApollo = (initialState: NormalizedCacheObject = null): ApolloClient<NormalizedCacheObject> => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const initializeApollo = (initialState: Record<string, any> = null): ApolloClient => {
   const _apolloClient = client ?? createApolloClient()
 
   // If your page has Next.js data fetching methods that use Apollo Client, the initial state
   // gets hydrated here
   if (initialState) {
     // Get existing cache, loaded during client side data fetching
-    const existingCache = _apolloClient.extract()
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const existingCache = _apolloClient.extract() as Record<string, any>
 
     // Restore the cache with the merged data
     _apolloClient.cache.restore({...existingCache, ...initialState})
@@ -47,5 +49,6 @@ export const initializeApollo = (initialState: NormalizedCacheObject = null): Ap
   return _apolloClient
 }
 
-export const useApollo = (initialState?: NormalizedCacheObject): ApolloClient<NormalizedCacheObject> =>
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const useApollo = (initialState?: Record<string, any>): ApolloClient =>
   useMemo(() => initializeApollo(initialState), [initialState])
