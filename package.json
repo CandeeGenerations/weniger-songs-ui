@@ -13,7 +13,7 @@
   "license": "MIT",
   "author": "Candee Generations <admin@candeegenerations.com>",
   "scripts": {
-    "build": "fnm use; REACT_APP_VERSION=$npm_package_version GENERATE_SOURCEMAP=false NODE_ENV=production craco build",
+    "build": "REACT_APP_VERSION=$npm_package_version GENERATE_SOURCEMAP=false NODE_ENV=production craco build",
     "eject": "react-scripts eject",
     "eslint": "eslint 'src/**/*.{ts,tsx}'",
     "generate": "graphql-codegen --config codegen.yml",
