@@ -20,6 +20,14 @@ module.exports = {
         'react/jsx-dev-runtime': require.resolve('react/jsx-dev-runtime'),
       }
 
+      // Fix Babel runtime import issue by removing ModuleScopePlugin restriction
+      const ModuleScopePlugin = webpackConfig.resolve.plugins.find(
+        (plugin) => plugin.constructor && plugin.constructor.name === 'ModuleScopePlugin',
+      )
+      if (ModuleScopePlugin) {
+        webpackConfig.resolve.plugins = webpackConfig.resolve.plugins.filter((plugin) => plugin !== ModuleScopePlugin)
+      }
+
       return webpackConfig
     },
   },
