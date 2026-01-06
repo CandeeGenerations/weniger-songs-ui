@@ -18,6 +18,9 @@ updates:
           - 'patch'
         patterns:
           - '*'
+    ignore:
+      - dependency-name: 'antd'
+        update-types: ['version-update:semver-major']
   - package-ecosystem: 'github-actions' # Check for updates to GitHub Actions every week
     directory: '/'
     pull-request-branch-name:
