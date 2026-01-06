@@ -53,7 +53,7 @@
     "@emotion/css": "^11.13.5",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
-    "antd": "^5.28.0",
+    "antd": "^5.29.3",
     "copy-text-to-clipboard": "^3.2.2",
     "craco-webpack-resolve": "^1.2.1",
     "dayjs": "^1.11.19",
