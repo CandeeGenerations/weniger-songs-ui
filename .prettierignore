@@ -1,3 +1,7 @@
+CHANGELOG.md
+CLAUDE.md
 pnpm-lock.yaml
-/public
 schema.graphql
+
+/public
+.github/dependabot.yml
