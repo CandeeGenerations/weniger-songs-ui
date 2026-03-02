@@ -37,12 +37,14 @@
     ]
   },
   "resolutions": {
-    "diff": "^4.0.4",
-    "lodash": "^4.17.23",
+    "jsonpath": "^1.2.0",
+    "minimatch": "^9.0.7",
     "nth-check": "^2.0.1",
-    "on-headers": "^1.1.0",
     "postcss": "^8.4.31",
-    "qs": "^6.14.1",
+    "qs": "^6.14.2",
+    "rollup": "^2.80.0",
+    "serialize-javascript": "^7.0.3",
+    "webpack": "^5.104.1",
     "webpack-dev-server": "^5.2.1"
   },
   "dependencies": {
@@ -65,7 +67,7 @@
   "devDependencies": {
     "@commitlint/cli": "^20.4.2",
     "@commitlint/config-conventional": "^20.4.2",
-    "@eslint/js": "^9.39.2",
+    "@eslint/js": "^10.0.1",
     "@graphql-codegen/cli": "^6.1.2",
     "@graphql-codegen/introspection": "^5.0.0",
     "@graphql-codegen/typescript": "^5.0.8",
@@ -76,7 +78,7 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@types/react-router-dom": "^5.3.3",
-    "eslint": "^9.39.2",
+    "eslint": "^10.0.2",
     "globals": "^17.4.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.3.1",
@@ -86,7 +88,7 @@
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.56.1"
   },
-  "packageManager": "pnpm@10.28.2+sha512.41872f037ad22f7348e3b1debbaf7e867cfd448f2726d9cf74c08f19507c31d2c8e7a11525b983febc2df640b5438dee6023ebb1f84ed43cc2d654d2bc326264",
+  "packageManager": "pnpm@10.30.3+sha512.c961d1e0a2d8e354ecaa5166b822516668b7f44cb5bd95122d590dd81922f606f5473b6d23ec4a5be05e7fcd18e8488d47d978bbe981872f1145d06e9a740017",
   "engines": {
     "node": ">=22.0.0",
     "pnpm": ">=10.0.0"
