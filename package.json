@@ -18,7 +18,7 @@
     "eslint": "eslint 'src/**/*.{ts,tsx}'",
     "generate": "graphql-codegen --config codegen.yml",
     "preinstall": "npx only-allow pnpm",
-    "pcheck": "npm-check -u -i 'antd' && pnpm audit",
+    "pcheck": "npm-check -u -i '{antd,@graphql-codegen/*}' && pnpm audit",
     "prepare": "husky",
     "prettier": "prettier --cache --check --write --ignore-unknown .",
     "prettier:ci": "pnpm exec prettier --check .",
