@@ -68,7 +68,7 @@
     "react-scripts": "^5.0.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "20.5.3",
+    "@commitlint/cli": "21.0.2",
     "@commitlint/config-conventional": "20.5.3",
     "@eslint/js": "^10.0.1",
     "@graphql-codegen/cli": "^6.3.1",
