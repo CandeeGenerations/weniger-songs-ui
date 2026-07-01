@@ -61,7 +61,7 @@
     "copy-text-to-clipboard": "^3.2.2",
     "craco-webpack-resolve": "^1.2.1",
     "dayjs": "1.11.21",
-    "graphql": "^16.14.2",
+    "graphql": "^17.0.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-router-dom": "^7.16.0",
