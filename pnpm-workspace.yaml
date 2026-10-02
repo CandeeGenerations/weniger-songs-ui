@@ -1,6 +1,3 @@
-allowBuilds:
-  core-js: true
-  core-js-pure: true
 minimumReleaseAgeExclude:
   - '@apollo/client@4.2.3'
   - graphql@16.14.2

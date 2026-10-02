@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
     "paths": {
       "@gql": ["./src/graphql/index.tsx"]
     }

@@ -9,8 +9,7 @@ import React from 'react'
 import {YOUTUBE_EXTRA} from '../../../helpers/constants'
 import {ITableSettings} from '../index'
 
-// oxlint-disable-next-line no-undef
-const {REACT_APP_YOUTUBE_URL} = process.env
+const {REACT_APP_YOUTUBE_URL} = import.meta.env
 
 const TableData = ({
   data,
