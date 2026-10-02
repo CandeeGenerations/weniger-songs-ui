@@ -11,7 +11,7 @@ const TableSettings = ({
   visible,
 }: {
   tableSettings: ITableSettings
-  onClose: (settings: ITableSettings) => void // eslint-disable-line no-unused-vars
+  onClose: (settings: ITableSettings) => void
   visible: boolean
 }): React.ReactElement => {
   const [settings, setSettings] = useState<ITableSettings>(tableSettings)
