@@ -7,6 +7,8 @@ version: 2
 updates:
   - package-ecosystem: 'npm'
     directory: '/'
+    # version updates come from CGENovate; ignore: stays the mute list, security PRs still open
+    open-pull-requests-limit: 0
     pull-request-branch-name:
       separator: '-' # Use hyphens to separate branch name segments
     schedule:
@@ -21,15 +23,17 @@ updates:
     ignore:
       - dependency-name: 'antd'
         update-types: ['version-update:semver-major']
-      - dependency-name: '@graphql-codegen/cli'
+      # muted 2026-10-02 — typescript-react-apollo (deprecated upstream) caps graphql at 16; unmute
+      # with graphql when generation moves to client-preset. CGENovate Dependency Dashboard #65
+      - dependency-name: '@graphql-codegen/*'
         update-types: ['version-update:semver-major']
-      - dependency-name: '@graphql-codegen/fragment-matcher'
+      # muted 2026-10-02 — held back only by the @graphql-codegen/* mute above; unmute together.
+      # CGENovate Dependency Dashboard #65
+      - dependency-name: 'graphql'
         update-types: ['version-update:semver-major']
-      - dependency-name: '@graphql-codegen/introspection'
-        update-types: ['version-update:semver-major']
-      - dependency-name: '@graphql-codegen/typescript'
-        update-types: ['version-update:semver-major']
-      - dependency-name: '@graphql-codegen/typescript-operations'
+      # muted 2026-10-02 — major tracks the Node major in .nvmrc (24); bump it with .nvmrc.
+      # CGENovate Dependency Dashboard #65
+      - dependency-name: '@types/node'
         update-types: ['version-update:semver-major']
   - package-ecosystem: 'github-actions' # Check for updates to GitHub Actions every week
     directory: '/'
