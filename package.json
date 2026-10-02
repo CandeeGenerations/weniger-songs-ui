@@ -15,9 +15,11 @@
   "scripts": {
     "build": "fnm use; REACT_APP_VERSION=$npm_package_version GENERATE_SOURCEMAP=false NODE_ENV=production craco build",
     "eject": "react-scripts eject",
-    "eslint": "eslint 'src/**/*.{ts,tsx}'",
+    "eslint": "pnpm run lint",
     "generate": "graphql-codegen --config codegen.yml",
     "preinstall": "npx only-allow pnpm",
+    "lint": "oxlint src",
+    "lint:fix": "oxlint --fix src",
     "pcheck": "npm-check -u -i '{antd,@graphql-codegen/*}' && pnpm audit",
     "prepare": "husky",
     "prettier": "prettier --cache --check --write --ignore-unknown .",
@@ -56,7 +58,6 @@
   "devDependencies": {
     "@commitlint/cli": "21.2.3",
     "@commitlint/config-conventional": "21.2.3",
-    "@eslint/js": "^10.0.1",
     "@graphql-codegen/cli": "^6.3.1",
     "@graphql-codegen/introspection": "^5.0.2",
     "@graphql-codegen/typescript": "^5.0.10",
@@ -67,15 +68,13 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@types/react-router-dom": "^5.3.3",
-    "eslint": "10.11.0",
-    "globals": "17.13.0",
     "husky": "^9.1.7",
     "lint-staged": "^17.6.0",
+    "oxlint": "1.86.0",
     "prettier": "3.9.9",
     "react-app-alias": "^2.2.2",
     "sort-package-json": "^4.0.0",
-    "typescript": "6.0.3",
-    "typescript-eslint": "8.71.0"
+    "typescript": "6.0.3"
   },
   "packageManager": "pnpm@12.8.1+sha512.f64ba907507f5ceafe06c8d38e6052d0179444580ec1279ddd5bfc11cb48aa8a2644b66598e07e761da84872a9fc57d5f902b87fa49d024198d558612aabbe45",
   "engines": {

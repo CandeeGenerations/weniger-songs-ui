@@ -9,7 +9,7 @@ import React from 'react'
 import {YOUTUBE_EXTRA} from '../../../helpers/constants'
 import {ITableSettings} from '../index'
 
-// eslint-disable-next-line no-undef
+// oxlint-disable-next-line no-undef
 const {REACT_APP_YOUTUBE_URL} = process.env
 
 const TableData = ({
@@ -21,8 +21,8 @@ const TableData = ({
 }: {
   data: GetSongsQuery
   loading: boolean
-  countData: QueryResult<GetSongsCountQuery, Exact<{where?: any}>> // eslint-disable-line @typescript-eslint/no-explicit-any
-  loadSongs: (settings?: ITableSettings) => void // eslint-disable-line no-unused-vars
+  countData: QueryResult<GetSongsCountQuery, Exact<{where?: any}>> // oxlint-disable-line typescript/no-explicit-any
+  loadSongs: (settings?: ITableSettings) => void
   tableSettings: ITableSettings
 }): React.ReactElement => {
   const columns = [

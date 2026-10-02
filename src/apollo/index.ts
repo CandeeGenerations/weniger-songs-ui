@@ -1,7 +1,7 @@
 import {ApolloClient, ApolloLink, HttpLink, InMemoryCache, from} from '@apollo/client'
 import {useMemo} from 'react'
 
-// eslint-disable-next-line no-undef
+// oxlint-disable-next-line no-undef
 const {REACT_APP_SERVER_URL} = process.env
 
 let client: ApolloClient
@@ -27,7 +27,7 @@ const createApolloClient = (): ApolloClient => {
   })
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// oxlint-disable-next-line typescript/no-explicit-any
 export const initializeApollo = (initialState: Record<string, any> = null): ApolloClient => {
   const _apolloClient = client ?? createApolloClient()
 
@@ -35,7 +35,7 @@ export const initializeApollo = (initialState: Record<string, any> = null): Apol
   // gets hydrated here
   if (initialState) {
     // Get existing cache, loaded during client side data fetching
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // oxlint-disable-next-line typescript/no-explicit-any
     const existingCache = _apolloClient.extract() as Record<string, any>
 
     // Restore the cache with the merged data
@@ -49,6 +49,6 @@ export const initializeApollo = (initialState: Record<string, any> = null): Apol
   return _apolloClient
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// oxlint-disable-next-line typescript/no-explicit-any
 export const useApollo = (initialState?: Record<string, any>): ApolloClient =>
   useMemo(() => initializeApollo(initialState), [initialState])

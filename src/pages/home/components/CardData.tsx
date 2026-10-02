@@ -8,7 +8,7 @@ import React from 'react'
 import {YOUTUBE_EXTRA} from '../../../helpers/constants'
 import {ITableSettings} from '../index'
 
-// eslint-disable-next-line no-undef
+// oxlint-disable-next-line no-undef
 const {REACT_APP_YOUTUBE_URL} = process.env
 
 const CardData = ({
@@ -21,11 +21,7 @@ const CardData = ({
   data: SongFragementFragment[]
   loading: boolean
   count: number
-  loadSongs: (
-    settings?: ITableSettings, // eslint-disable-line no-unused-vars
-    searching?: boolean, // eslint-disable-line no-unused-vars
-    loadMore?: boolean, // eslint-disable-line no-unused-vars
-  ) => void
+  loadSongs: (settings?: ITableSettings, searching?: boolean, loadMore?: boolean) => void
   tableSettings: ITableSettings
 }): React.ReactElement => {
   const moreSongs = count > tableSettings.pagination.pageSize * tableSettings.pagination.current

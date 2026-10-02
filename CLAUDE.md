@@ -20,7 +20,8 @@ pnpm start            # Start dev server (uses phase.dev for env variables)
 ### Code Quality
 
 ```bash
-pnpm eslint           # Lint TypeScript files in src/
+pnpm lint             # Lint TypeScript files in src/ with oxlint (config: .oxlintrc.json)
+pnpm lint:fix         # Lint and auto-fix
 pnpm prettier         # Format all files (check and write)
 pnpm prettier:ci      # Format check only (for CI)
 ```
@@ -87,7 +88,7 @@ HomePage (src/pages/home/index.tsx)
 
 - **Create React App** with **Craco** overrides (no eject)
 - **Path aliases:** `@gql` → `./src/graphql/index.tsx` (configured in `tsconfig.paths.json`)
-- **ESLint:** Only runs in development mode
+- **Linting:** CRA's built-in ESLint webpack plugin is disabled in `craco.config.js`; lint separately with `pnpm lint` (oxlint)
 - **Source maps:** Disabled in production builds
 
 ## Key Files
@@ -122,7 +123,7 @@ HomePage (src/pages/home/index.tsx)
 
 ### Git Hooks
 
-- **pre-commit:** Runs prettier, eslint, and sort-package-json on staged files
+- **pre-commit:** Runs prettier, oxlint, and sort-package-json on staged files
 - **commit-msg:** Validates commit message format (commitlint)
 - Configured via Husky + lint-staged
 

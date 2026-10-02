@@ -1,11 +1,11 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
-/* eslint-disable no-undef */
+/* oxlint-disable typescript/no-require-imports */
+/* oxlint-disable no-undef */
 const path = require('path')
 
 module.exports = {
   eslint: {
-    // Disable ESLint webpack plugin due to incompatibility with ESLint 9
-    // Run linting separately with: pnpm eslint
+    // Disable CRA's built-in ESLint webpack plugin (incompatible with ESLint 9+)
+    // Linting runs separately via oxlint: pnpm lint
     enable: false,
   },
   webpack: {
