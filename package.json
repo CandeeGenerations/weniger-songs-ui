@@ -36,20 +36,6 @@
       "last 1 safari version"
     ]
   },
-  "resolutions": {
-    "@tootallnate/once": "^3.0.1",
-    "follow-redirects": "^1.16.0",
-    "jsonpath": "^1.3.0",
-    "lodash": "^4.18.0",
-    "lodash-es": "^4.18.0",
-    "path-to-regexp": "^0.1.13",
-    "postcss": "^8.5.10",
-    "qs": "^6.14.2",
-    "serialize-javascript": "^7.0.5",
-    "svgo": "^2.8.1",
-    "underscore": "^1.13.8",
-    "webpack-dev-server": "^5.2.1"
-  },
   "dependencies": {
     "@ant-design/icons": "6.3.4",
     "@apollo/client": "4.3.1",
