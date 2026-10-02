@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Weniger Songs UI is a React 19 + TypeScript web application showcasing songs by Dr. Brad Weniger. It's a single-page application with a responsive design (table for desktop, cards for mobile) powered by Apollo Client and Strapi GraphQL backend.
 
-**Tech Stack:** React 19, TypeScript 6, Vite, Apollo Client, Ant Design, React Router 7, GraphQL Code Generator
+**Tech Stack:** React 19, TypeScript 7, Vite, Apollo Client, Ant Design, React Router 7, GraphQL Code Generator
 
 ## Common Commands
 
