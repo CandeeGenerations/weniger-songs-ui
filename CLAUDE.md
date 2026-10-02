@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Weniger Songs UI is a React 19 + TypeScript web application showcasing songs by Dr. Brad Weniger. It's a single-page application with a responsive design (table for desktop, cards for mobile) powered by Apollo Client and Strapi GraphQL backend.
 
-**Tech Stack:** React 19, TypeScript 5.8, Apollo Client, Ant Design, React Router 7, GraphQL Code Generator
+**Tech Stack:** React 19, TypeScript 6, Vite, Apollo Client, Ant Design, React Router 7, GraphQL Code Generator
 
 ## Common Commands
 
@@ -37,7 +37,8 @@ Run this after modifying `/src/graphql/song.graphql` to update `/src/graphql/ind
 ### Build
 
 ```bash
-pnpm build            # Production build with craco
+pnpm build            # Type-check (tsc) then production build with Vite, output in build/
+pnpm type-check       # Type-check only
 ```
 
 ## Architecture
@@ -86,9 +87,12 @@ HomePage (src/pages/home/index.tsx)
 
 ### Build Configuration
 
-- **Create React App** with **Craco** overrides (no eject)
-- **Path aliases:** `@gql` → `./src/graphql/index.tsx` (configured in `tsconfig.paths.json`)
-- **Linting:** CRA's built-in ESLint webpack plugin is disabled in `craco.config.js`; lint separately with `pnpm lint` (oxlint)
+- **Vite** (`vite.config.ts`) with `@vitejs/plugin-react`; dev server on port 3000 proxies `/graphql` to `http://localhost:5502`
+- **Env vars:** `envPrefix: 'REACT_APP_'` keeps the existing names; read them via `import.meta.env` (typed in `src/vite-env.d.ts`)
+- **Output:** `build/` (what Netlify publishes)
+- **Path aliases:** `@gql` → `./src/graphql/index.tsx` (`resolve.alias` in `vite.config.ts` for bundling, `tsconfig.paths.json` for types)
+- **Type-checking:** Vite does not type-check; `pnpm build` runs `tsc` first
+- **Linting:** separate from the build, via `pnpm lint` (oxlint)
 - **Source maps:** Disabled in production builds
 
 ## Key Files
@@ -100,7 +104,7 @@ HomePage (src/pages/home/index.tsx)
 | `src/pages/home/`          | Home page component and sub-components                               |
 | `src/helpers/constants.ts` | App configuration (page size, sort defaults)                         |
 | `codegen.yml`              | GraphQL code generator configuration                                 |
-| `craco.config.js`          | Create React App configuration overrides                             |
+| `vite.config.ts`           | Vite config: React plugin, env prefix, `@gql` alias, dev proxy, output dir |
 | `tsconfig.paths.json`      | TypeScript path alias configuration                                  |
 
 ## Development Notes

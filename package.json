@@ -13,8 +13,7 @@
   "license": "MIT",
   "author": "Candee Generations <admin@candeegenerations.com>",
   "scripts": {
-    "build": "fnm use; REACT_APP_VERSION=$npm_package_version GENERATE_SOURCEMAP=false NODE_ENV=production craco build",
-    "eject": "react-scripts eject",
+    "build": "fnm use; tsc && REACT_APP_VERSION=$npm_package_version vite build",
     "eslint": "pnpm run lint",
     "generate": "graphql-codegen --config codegen.yml",
     "preinstall": "npx only-allow pnpm",
@@ -24,36 +23,22 @@
     "prepare": "husky",
     "prettier": "prettier --cache --check --write --ignore-unknown .",
     "prettier:ci": "pnpm exec prettier --check .",
-    "start": "fnm use; phase run 'REACT_APP_VERSION=$npm_package_version BROWSER=none craco start'"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "start": "fnm use; phase run 'REACT_APP_VERSION=$npm_package_version vite'",
+    "type-check": "tsc"
   },
   "dependencies": {
     "@ant-design/icons": "6.3.4",
     "@apollo/client": "4.3.1",
-    "@craco/craco": "^7.1.0",
     "@emotion/css": "^11.13.5",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "antd": "^5.29.3",
     "copy-text-to-clipboard": "^3.2.2",
-    "craco-webpack-resolve": "^1.2.1",
     "dayjs": "1.11.23",
     "graphql": "^16.14.2",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
-    "react-router-dom": "^7.18.4",
-    "react-scripts": "^5.0.1"
+    "react-router-dom": "^7.18.4"
   },
   "devDependencies": {
     "@commitlint/cli": "21.2.3",
@@ -68,18 +53,18 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@types/react-router-dom": "^5.3.3",
+    "@vitejs/plugin-react": "6.1.1",
     "husky": "^9.1.7",
     "lint-staged": "^17.6.0",
     "oxlint": "1.86.0",
     "prettier": "3.9.9",
-    "react-app-alias": "^2.2.2",
     "sort-package-json": "^4.0.0",
-    "typescript": "6.0.3"
+    "typescript": "6.0.3",
+    "vite": "8.3.2"
   },
   "packageManager": "pnpm@12.8.1+sha512.f64ba907507f5ceafe06c8d38e6052d0179444580ec1279ddd5bfc11cb48aa8a2644b66598e07e761da84872a9fc57d5f902b87fa49d024198d558612aabbe45",
   "engines": {
     "node": ">=24.0.0",
     "pnpm": ">=10.0.0"
-  },
-  "proxy": "http://localhost:5502"
+  }
 }

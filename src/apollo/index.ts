@@ -1,8 +1,7 @@
 import {ApolloClient, ApolloLink, HttpLink, InMemoryCache, from} from '@apollo/client'
 import {useMemo} from 'react'
 
-// oxlint-disable-next-line no-undef
-const {REACT_APP_SERVER_URL} = process.env
+const {REACT_APP_SERVER_URL} = import.meta.env
 
 let client: ApolloClient
 
